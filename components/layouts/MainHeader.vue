@@ -15,7 +15,10 @@
                   	<a href="/terms" class="nav-link px-1">Terms of Use</a>
                 </li>
                 <li>
-                  	<a href="#" class="nav-link px-1">Telegram</a>
+                  	<a href="/partners-about" class="nav-link px-1">Referral System</a>
+                </li>
+                <li>
+                  	<a href="https://t.me/instaboost_official" class="nav-link px-1" target="_blank">Telegram</a>
                 </li>
             </ul>
     

@@ -8,7 +8,8 @@
             <div class="footer-links col-md-8 text-end">
                 <a class="footer-link" href="/prices">Prices</a>
                 <a class="footer-link" href="/terms">Terms of Use</a>
-                <a class="footer-link" href="#">Telegram</a>
+                <a class="footer-link" href="/partners-about">Referral System</a>
+                <a class="footer-link" href="https://t.me/instaboost_official" target="_blank">Telegram</a>
             </div>
         </div>
     </div>

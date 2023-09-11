@@ -18,7 +18,7 @@
                   	<a href="/prices" class="nav-link px-1">Prices</a>
                 </li>
                 <li>
-                    <a href="/partners" class="nav-link px-1">Referral system</a>
+                    <a href="/partners" class="nav-link px-1">Referral System</a>
                 </li>
                 <li>
                   	<a href="/account/settings" class="nav-link px-1">Settings</a>

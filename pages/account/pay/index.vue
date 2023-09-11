@@ -154,7 +154,11 @@ export default {
                     payment_method: this.selectedPaymentMethod
                 });
                 if(!res.success) {
-                    this.errors = res.errors;
+                    if(res.errors) {
+                        this.errors = res.errors;
+                    } else {
+                        this.$toast.error(res.message)
+                    }
                     return;
                 }
                 window.location.href = '/account/pay/' + res.data.hash;
