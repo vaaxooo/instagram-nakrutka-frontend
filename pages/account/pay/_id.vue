@@ -14,9 +14,8 @@
                                         <td>Amount</td>
                                         <td v-if="deposit.payment_method === 'debit'">{{ (+deposit.amount * 38.40).toFixed(2) }} UAH</td>
                                         <td v-else-if="deposit.payment_method === 'usdt'">$ {{ deposit.amount }}</td>
-                                        <td v-else-if="deposit.payment_method === 'bitcoin'">$ {{ deposit.amount / (+bitcoinRate).toFixed(4) }}</td>
+                                        <td v-else-if="deposit.payment_method === 'bitcoin'">{{ (+deposit.amount / +bitcoinRate).toFixed(8) }} BTC</td>
                                     </tr>
-                                                                            {{ bitcoinRate }}
                                     <tr>
                                         <td>Payment Method</td>
                                         <td v-if="deposit.payment_method === 'debit'">Visa / MasterCard (UAH)</td>
@@ -107,13 +106,13 @@ export default {
 
         async getBitcoinRate() {
             try {
-                const { data: res } = await this.$axios.get(`https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT`);
-                if(!res.price) {
+                const { data: res } = await this.$axios.get(`/private/get-exchange-rates`);
+                if(!res.data.price) {
                     return
                 }
-                this.bitcoinRate = res.price;
+                this.bitcoinRate = res.data.price;
             } catch (error) {
-                this.$toast.error(error.response.data.message, "Error");
+                this.$toast.error(error.message);
             }
         }
 
