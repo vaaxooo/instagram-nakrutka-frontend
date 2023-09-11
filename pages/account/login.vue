@@ -67,7 +67,7 @@ export default {
 				this.$toast.success(response.message)
 				await this.$auth.setUserToken(response.token);
 				await this.$auth.setUser(response.user);
-				window.location = '/';
+				window.location = '/new-order';
 			} else {
                 if(response.errors) {
                     this.errors = response.errors
