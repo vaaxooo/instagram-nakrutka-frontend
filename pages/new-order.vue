@@ -55,7 +55,7 @@
 							<li><img src="assets/images/circle-o.svg" width="16px" class="mr-2">Order limit: {{ selectedServiceData.min }} − {{ selectedServiceData.max }}</li>
 							<li><img src="assets/images/circle-info.svg" width="16px" class="mr-2">{{ selectedServiceData.description || '-' }}</li>
 						</ul>
-						<a href="/price" style="color: #249EC7; text-decoration: none;">Information about all the services.</a>
+						<a href="/prices" style="color: #249EC7; text-decoration: none;">Information about all the services.</a>
 					</div>
 				</div>
 			</div>
