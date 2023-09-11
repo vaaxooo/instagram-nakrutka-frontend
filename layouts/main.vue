@@ -1,9 +1,10 @@
 <template>
     <div class="content">
-        <layouts-main-header />
-            <div class="container">
-                <Nuxt />
-                <layouts-main-footer />
-            </div>
+        <Layouts-Header v-if="$auth.user" />
+        <layouts-main-header v-else />
+        <div class="container">
+            <Nuxt />
+            <layouts-main-footer />
+        </div>
     </div>
 </template>
