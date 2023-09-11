@@ -1,6 +1,6 @@
 <template>
     <div class="row">
-        <div class="col-md-12 mb-5">
+        <div class="col-md-12 mb-5 px-0">
 
             <div class="card">
                 <div class="card-header">
@@ -41,3 +41,11 @@
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    layout: 'main',
+    auth: false
+
+}
+</script>
