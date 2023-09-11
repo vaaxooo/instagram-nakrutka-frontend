@@ -28,7 +28,12 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+	{ src: '~/plugins/gtag.js', mode: 'client' },
   ],
+
+  googleAnalytics: {
+    id: 'G-E9D5N1TTMS', // Ваш идентификатор Google Analytics
+  },
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
