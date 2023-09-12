@@ -3,7 +3,7 @@
         <div class="col-md-12 mb-3">
             <div class="card">
                 <div class="card-header">
-                    Orders History
+                    {{ $t('ORDERS_HISTORY') }}
                 </div>
                 <div class="card-body">
 
@@ -13,12 +13,12 @@
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Order</th>
-                                        <th scope="col">Order Details</th>
-                                        <th scope="col">Other Details</th>
-                                        <th scope="col">Status</th>
-                                        <th scope="col">Created At</th>
-                                        <th scope="col">Link</th>
+                                        <th scope="col">{{ $t('ORDER') }}</th>
+                                        <th scope="col">{{ $t('ORDER_DETAILS') }}</th>
+                                        <th scope="col">{{ $t('OTHER_DETAILS') }}</th>
+                                        <th scope="col">{{ $t('STATUS') }}</th>
+                                        <th scope="col">{{ $t('DATE') }}</th>
+                                        <th scope="col">{{ $t('LINK') }}</th>
                                         <th scope="col"></th>
                                     </tr>
                                 </thead>
@@ -29,17 +29,17 @@
                                             <span class="currency-symbol d-block">{{ order.service.service_id }}. {{ order.service.name }}</span>
                                         </td>
                                         <td>
-                                            <span class="balance-coin">Cost: $ {{ order.cost }}</span>
-                                            <span class="balance-fiat d-block">Quantity: {{ order.quantity }}</span>
+                                            <span class="balance-coin">{{ $t('COST') }}: $ {{ order.cost }}</span>
+                                            <span class="balance-fiat d-block">{{ $t('QUANTITY') }}: {{ order.quantity }}</span>
                                         </td>
                                         <td>
-                                            <span class="balance-coin">Remains: {{ order.remains }}</span>
-                                            <span class="balance-fiat d-block">Start: {{ order.start_count }}</span>
+                                            <span class="balance-coin">{{ $t('QUANTITY') }}: {{ order.remains }}</span>
+                                            <span class="balance-fiat d-block">{{ $t('START') }}: {{ order.start_count }}</span>
                                         </td>
                                         <td>
-                                            <span class="badge badge-success" v-if="order.status === 'Completed'">{{ order.status }}</span>
-                                            <span class="badge badge-warning" v-else-if="order.status === 'In progress'">{{ order.status }}</span>
-                                            <span class="badge badge-grey" v-else>{{ order.status }}</span>
+                                            <span class="badge badge-success" v-if="order.status === 'Completed'">{{ $t(order.status) }}</span>
+                                            <span class="badge badge-warning" v-else-if="order.status === 'In progress'">{{ $t(order.status) }}</span>
+                                            <span class="badge badge-grey" v-else>{{ $t(order.status) }}</span>
                                         </td>
                                         <td>
                                             {{ formatDate(order.createdAt) }}
@@ -48,14 +48,14 @@
                                             {{ order.link }}
                                         </td>
                                         <td>
-                                            <button type="button" class="btn btn-sm btn-light" v-if="order.service.cancel && order.status === 'In progress'" @click="cancelOrder(order.id)">Cancel</button>
+                                            <button type="button" class="btn btn-sm btn-light" v-if="order.service.cancel && order.status === 'In progress'" @click="cancelOrder(order.id)">{{ $t('CANCEL') }}</button>
                                             <!-- <a :href="`/?category_id=${order.service.category_id}&service_id=${order.service.service_id}&link=${order.link}&quantity=${order.quantity}`" class="btn btn-sm btn-success" v-if="order.service.refill && order.status === 'Completed'">Refill</a> -->
                                         </td>
                                     </tr>
                                 </tbody>
                                 <tbody v-else>
                                     <tr>
-                                        <td colspan="7" class="text-center">No orders found</td>
+                                        <td colspan="7" class="text-center">{{ $t('NO_ORDERS_FOUND') }}</td>
                                     </tr>
                                 </tbody>
                             </table>

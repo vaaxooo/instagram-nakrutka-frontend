@@ -5,7 +5,7 @@
 @import url('https://fonts.cdnfonts.com/css/museo-sans-rounded');
 body {
     background: #f5f5f5;
-    font-family: 'Museo Sans Rounded', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 300;
 }
 
@@ -66,7 +66,16 @@ ul {
 
 
 
+a.swith-language {
+  text-decoration: none;
+  color: #000000;
+  margin: 0 10px;
+  font-weight: 500;
+}
 
+a.swith-language:hover {
+  color: #ff9810;
+}
 
 
 
@@ -438,6 +447,13 @@ span.badge.badge-success {
   background: linear-gradient(#8BC34A, #4CAF50);
   box-shadow: #8BC34A 0px 15px 50px -10px;
   border-radius: 30px;
+  color: #fff;
+  font-weight: 400;
+}
+
+.alert-success {
+  background-color: #8BC34A;
+  border-color: #8BC34A;
   color: #fff;
   font-weight: 400;
 }

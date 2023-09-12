@@ -3,7 +3,7 @@
         <div class="col-md-6 justify-content-center mx-auto">
             <div class="card">
                 <div class="card-header">
-                    Deposit
+                    {{ $t('DEPOSIT') }}
                 </div>
                 <div class="card-body">
                     <div class="table-container">
@@ -11,37 +11,37 @@
                             <table class="table table-hover">
                                 <tbody>
                                     <tr>
-                                        <td>Amount</td>
+                                        <td>{{ $t('AMOUNT') }}</td>
                                         <td v-if="deposit.payment_method === 'debit'">{{ (+deposit.amount * 38.40).toFixed(2) }} UAH</td>
                                         <td v-else-if="deposit.payment_method === 'usdt'">$ {{ deposit.amount }}</td>
                                         <td v-else-if="deposit.payment_method === 'bitcoin'">{{ (+deposit.amount / +bitcoinRate).toFixed(8) }} BTC</td>
                                     </tr>
                                     <tr>
-                                        <td>Payment Method</td>
+                                        <td>{{ $t('PAYMENT_METHOD') }}</td>
                                         <td v-if="deposit.payment_method === 'debit'">Visa / MasterCard (UAH)</td>
                                         <td v-else-if="deposit.payment_method === 'usdt'">USDT TRC-20</td>
                                         <td v-else-if="deposit.payment_method === 'bitcoin'">Bitcoin</td>
                                     </tr>
                                     <tr>
-                                        <td>Status</td>
+                                        <td>{{ $t('STATUS') }}</td>
                                         <td v-if="deposit.status === 'Pending'">
-                                            <span class="badge badge-grey">{{ deposit.status }}</span>
+                                            <span class="badge badge-grey">{{ $t(deposit.status) }}</span>
                                         </td>
                                         <td class="text-success" v-else-if="deposit.status === 'Success'">
-                                             <span class="badge badge-success">{{ deposit.status }}</span>
+                                             <span class="badge badge-success">{{ $t(deposit.status) }}</span>
                                         </td>
                                         <td v-else>
-                                             <span class="badge badge-grey">{{ deposit.status }}</span>
+                                             <span class="badge badge-grey">{{ $t(deposit.status) }}</span>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Hash</td>
+                                        <td>{{ $t('HASH') }}</td>
                                         <td><code>{{ deposit.hash }}</code></td>
                                     </tr>
                                 </tbody>
                             </table>
                             <div class="wallet-address-recipient" v-if="deposit.status === 'Pending'">
-                                <div class="info">Please transfer the specified amount to the following wallet for crediting:</div>
+                                <div class="info">{{ $t('TRANSFER_INFO_ONE') }}:</div>
                                 <div class="wallet" v-if="deposit.payment_method === 'debit'" @click="copyToClipboard('5375 4114 2180 3581')">
                                     5375 4114 2180 3581
                                 </div>
@@ -51,7 +51,7 @@
                                 <div class="wallet" v-if="deposit.payment_method === 'bitcoin'" @click="copyToClipboard('bc1qmwahmkde39eaxe5uzs80k4fqhcx009qfrcue85')">
                                     bc1qmwahmkde39eaxe5uzs80k4fqhcx009qfrcue85
                                 </div>
-                                <div class="info">The enrollment process is automatic.</div>
+                                <div class="info">{{ $t('TRANSFER_INFO_TWO') }}</div>
                             </div>
                         </div>
                     </div>

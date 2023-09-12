@@ -3,7 +3,7 @@
         <div class="col-md-12 mb-3 px-0">
             <div class="card">
                 <div class="card-header">
-                    Prices
+                    {{ $t('PRICES') }}
                 </div>
                 <div class="card-body">
 
@@ -13,13 +13,13 @@
                             <div class="service-details col-md-6" v-for="service in category.services" :key="service.id">
                                 <div class="service-title d-flex">{{ service.service_id }}. {{ service.name }}</div>
                                 <div class="service-desc">
-                                    <div class="service-subtitle">$ {{ service.dirty_rate }} / <span>per 1000</span> </div>
+                                    <div class="service-subtitle">$ {{ service.dirty_rate }} / <span>{{ $t('PER') }} 1000</span> </div>
                                     <div class="card-text">
                                         <ul class="m-0 my-1">
-                                            <li><img src="assets/images/fire.svg" width="16px" class="mr-2">Drops: 1-10%</li>
-                                            <li><img src="assets/images/clock.svg" width="16px" class="mr-2">Queue: no</li>
-                                            <li><img src="assets/images/circle-o.svg" width="16px" class="mr-2">Order limit: {{ service.min }} − {{ service.max }}</li>
-                                            <li><img src="assets/images/circle-info.svg" width="16px" class="mr-2">{{ service.description || '-' }}</li>
+                                            <li><img src="/assets/images/fire.svg" width="16px" class="mr-2">{{ $t('DROPS') }}: 1-10%</li>
+                                            <li><img src="/assets/images/clock.svg" width="16px" class="mr-2">{{ $t('QUEUE') }}: {{ $t('NO') }}</li>
+                                            <li><img src="/assets/images/circle-o.svg" width="16px" class="mr-2">{{ $t('ORDER_LIMIT') }}: {{ service.min }} − {{ service.max }}</li>
+                                            <li><img src="/assets/images/circle-info.svg" width="16px" class="mr-2">{{ service.description || '-' }}</li>
                                         </ul>
                                     </div>
                                 </div>

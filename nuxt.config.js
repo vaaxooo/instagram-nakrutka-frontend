@@ -45,9 +45,23 @@ export default {
 	modules: [
 		"@nuxtjs/axios",
 		"@nuxtjs/auth-next", ['@nuxtjs/dotenv', { systemvars: true }, ],
-		"@nuxtjs/toast",
+		"@nuxtjs/toast", ['nuxt-i18n', {
+			locales: ['en', 'ru'],
+			defaultLocale: 'en',
+			vueI18n: {
+			  fallbackLocale: 'en',
+			  messages: {
+				en: require('./locales/en.json'),
+				ru: require('./locales/ru.json'),
+			  },
+			},
+		}],
+		'cookie-universal-nuxt',
 	],
 
+	i18n: {
+
+	},
 
   	auth: {
 		redirect: {

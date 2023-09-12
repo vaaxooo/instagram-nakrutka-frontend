@@ -3,36 +3,36 @@
 		<div class="col-md-5 mb-3">
 			<div class="card">
 				<div class="card-header">
-					New Order
+					{{ $t('NEW_ORDER') }}
 				</div>
 				<div class="card-body">
 					<form @submit.prevent>
 						<div class="mb-3">
-							<label for="category" class="form-label">Category</label>
+							<label for="category" class="form-label">{{ $t('CATEGORY') }}</label>
 							<select class="form-select" id="category" v-model="selectedCategory">
-								<option disabled="" selected="">Choose the type of category</option>
+								<option disabled="" selected="">{{ $t('CHOOSE_CATEGORY') }}</option>
 								<option v-for="category in categories" :key="category.id" :value="category.category_id">{{ category.name }}</option>
 							</select>
 						</div>
 						<div class="mb-3">
-							<label for="service" class="form-label">Service</label>
+							<label for="service" class="form-label">{{ $t('SERVICE') }}</label>
 							<select class="form-select" id="service" v-model="selectedService" @change="changeService" :class="{'is-invalid': errors.service_id}">
-								<option disabled="" selected="">Choose the type of service</option>
+								<option disabled="" selected="">{{ $t('CHOOSE_SERVICE') }}</option>
 								<option v-for="service in services" :key="service.id" :value="service.service_id">{{ service.service_id }}. {{ service.name }} - $ {{ +(+service.dirty_rate).toFixed(2) }}</option>
 							</select>
 							<span class="invalid-feedback d-block" v-if="errors.service_id">{{ errors.service_id[0] }}</span>
 						</div>
 						<div class="mb-3">
-							<label for="link" class="form-label">Link</label>
-							<input type="text" class="form-control" id="link" name="link" placeholder="Link" v-model="link" :class="{'is-invalid': errors.link}">
+							<label for="link" class="form-label">{{ $t('LINK') }}</label>
+							<input type="text" class="form-control" id="link" name="link" :placeholder="$t('LINK')" v-model="link" :class="{'is-invalid': errors.link}">
 							<span class="invalid-feedback d-block" v-if="errors.link">{{ errors.link[0] }}</span>
 						</div>
 						<div class="mb-3">
-							<label for="quantity" class="form-label">Quantity</label>
-							<input type="text" class="form-control" id="quantity" name="quantity" placeholder="Quantity" v-model="quantity" :class="{'is-invalid': errors.quantity}">
+							<label for="quantity" class="form-label">{{ $t('QUANTITY') }}</label>
+							<input type="text" class="form-control" id="quantity" name="quantity" :placeholder="$t('QUANTITY')" v-model="quantity" :class="{'is-invalid': errors.quantity}">
 							<span class="invalid-feedback d-block" v-if="errors.quantity">{{ errors.quantity[0] }}</span>
 						</div>
-						<button type="submit" class="sign-in_btn btn-block" @click="createOrder">Submit</button>
+						<button type="submit" class="sign-in_btn btn-block" @click="createOrder">{{ $t('SUBMIT') }}</button>
 					</form>
 				</div>
 			</div>
@@ -40,22 +40,22 @@
 		<div class="col-md-7 mb-3">
 			<div class="card">
 				<div class="card-header">
-					Information
+					{{ $t('INFORMATION') }}
 				</div>
 				<div class="card-body">
-					<h5 class="card-title">Balance: $ <span id="current-balance">{{ $auth.user.balance }}</span></h5>
+					<h5 class="card-title">{{ $t('BALANCE') }}: $ <span id="current-balance">{{ $auth.user.balance }}</span></h5>
 					<hr>
-					<h5 class="card-title">Order Cost: $ <span id="price">{{ cost }}</span></h5>
+					<h5 class="card-title">{{ $t('ORDER_COST') }}: $ <span id="price">{{ cost }}</span></h5>
 					<hr>
-					<h5 class="card-title">Description of the selected service:</h5>
+					<h5 class="card-title">{{ $t('DESC_SELECTED_SERVICE') }}:</h5>
 					<div class="card-text">
 						<ul class="m-0 my-1">
-							<li><img src="assets/images/fire.svg" width="16px" class="mr-2">Drops: 1-10%</li>
-							<li><img src="assets/images/clock.svg" width="16px" class="mr-2">Queue: no</li>
-							<li><img src="assets/images/circle-o.svg" width="16px" class="mr-2">Order limit: {{ selectedServiceData.min }} − {{ selectedServiceData.max }}</li>
-							<li><img src="assets/images/circle-info.svg" width="16px" class="mr-2">{{ selectedServiceData.description || '-' }}</li>
+							<li><img src="/assets/images/fire.svg" width="16px" class="mr-2">{{ $t('DROPS') }}: 1-10%</li>
+							<li><img src="/assets/images/clock.svg" width="16px" class="mr-2">{{ $t('QUEUE') }}: {{ $t('NO') }}</li>
+							<li><img src="/assets/images/circle-o.svg" width="16px" class="mr-2">{{ $t('ORDER_LIMIT') }}: {{ selectedServiceData.min }} − {{ selectedServiceData.max }}</li>
+							<li><img src="/assets/images/circle-info.svg" width="16px" class="mr-2">{{ selectedServiceData.description || '-' }}</li>
 						</ul>
-						<a href="/prices" style="color: #249EC7; text-decoration: none;">Information about all the services.</a>
+						<a :href="localePath('/prices')" style="color: #249EC7; text-decoration: none;">{{ $t('INFORMATION_ABOUT_ALL_SERVICES') }}</a>
 					</div>
 				</div>
 			</div>

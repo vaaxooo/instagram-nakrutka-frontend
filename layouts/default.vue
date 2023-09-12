@@ -18,6 +18,16 @@ export default {
         if(ref) {
             localStorage.setItem('ref', ref);
         }  
+
+        if(this.$i18n.locale !== 'en' && this.$i18n.locale !== 'ru') {
+            const userLanguage = window.navigator.language;
+            let language = userLanguage.split('-')[0];
+            if (language !== 'en' && language !== 'ru') {
+                language = 'en';
+            }
+            this.$i18n.locale = language;
+        }
+
     },
 }
 
